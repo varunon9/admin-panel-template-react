@@ -1,0 +1,46 @@
+{
+  "name": "admin-panel-template-react",
+  "version": "1.0.0",
+  "description": "Admin Panel template built in node.js and react.js using MySQL database.",
+  "main": "./bin/www",
+  "scripts": {
+    "start": "export NODE_ENV=production && pm2 start ./bin/www",
+    "test": "eslint . && mocha test/**/**/*.js --exit"
+  },
+  "keywords": [
+    "admin-panel-template",
+    "node-react"
+  ],
+  "author": "Varun Kumar <varunon9@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "bunyan": "^1.8.12",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "google-auth-library": "^1.6.1",
+    "jsonwebtoken": "^8.3.0",
+    "mysql2": "^1.5.3",
+    "s": "^0.1.1",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varunon9/admin-panel-template-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/varunon9/admin-panel-template-react/issues"
+  },
+  "homepage": "https://github.com/varunon9/admin-panel-template-react#readme"
+}
