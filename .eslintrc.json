@@ -1,0 +1,42 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "before": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "eol-last": "error",
+    "no-console": "off",
+    "max-len": [1, 80, 2, {"ignoreComments": true}],
+    "keyword-spacing": [
+      "error", {
+        "after": true,
+        "before": true
+      }
+    ]
+  }
+}

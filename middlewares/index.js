@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.js')[env];
 
-const { saveRequestLog } = require('../services/utility');
 const logger = require('../modules/logger');
 
 const statusCode = require('../constants/statusCode');
@@ -28,7 +27,7 @@ module.exports = {
     if (env === 'development') {
       logger.info('Request Body: ', body);
     }
-    
+
     next();
   },
 

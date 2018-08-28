@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const logger = require('../modules/logger');
-const { verifyToken } = require('../middlewares');
-const userController = require('../controllers/user');
+const logger = require('../../modules/logger');
+const { verifyToken } = require('../../middlewares');
+const userController = require('../../controllers/user');
 
 router.get('/:id', (req, res) => {
   userController.getUserById(req.params.id)
