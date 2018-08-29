@@ -5,7 +5,9 @@
   "main": "./bin/www",
   "scripts": {
     "start": "export NODE_ENV=production && pm2 start ./bin/www",
-    "test": "eslint . && mocha test/**/**/*.js --exit"
+    "test": "eslint . && mocha test/**/**/*.js --exit",
+    "build": "webpack --watch",
+    "build-dev": "export NODE_ENV=development && webpack --watch"
   },
   "keywords": [
     "admin-panel-template",
@@ -14,6 +16,7 @@
   "author": "Varun Kumar <varunon9@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
@@ -23,14 +26,28 @@
     "google-auth-library": "^1.6.1",
     "jsonwebtoken": "^8.3.0",
     "mysql2": "^1.5.3",
+    "react": "^16.4.2",
+    "react-autobind": "^1.0.6",
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1",
     "s": "^0.1.1",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.0",
     "eslint": "^5.2.0",
+    "eslint-loader": "^2.1.0",
     "expect.js": "^0.3.1",
+    "file-loader": "^1.1.11",
     "mocha": "^5.2.0",
-    "supertest": "^3.1.0"
+    "supertest": "^3.1.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
   },
   "directories": {
     "test": "test"
