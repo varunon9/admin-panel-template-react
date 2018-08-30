@@ -4,7 +4,7 @@ const webpack = require('webpack');
  * By default environment will be production and debug will be false
  */
 const mode = process.env.NODE_ENV || 'production';
-const debug = mode !== 'production';
+//const debug = mode !== 'production';
 
 const S_PATH = __dirname + '/public/src';
 
@@ -43,4 +43,4 @@ module.exports = {
       }
     ]
   }
-}
+};

@@ -29,7 +29,10 @@
     "react": "^16.4.2",
     "react-autobind": "^1.0.6",
     "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "s": "^0.1.1",
     "sequelize": "^4.38.0"
   },
@@ -41,6 +44,7 @@
     "babel-loader": "^8.0.0",
     "eslint": "^5.2.0",
     "eslint-loader": "^2.1.0",
+    "eslint-plugin-react": "^7.11.1",
     "expect.js": "^0.3.1",
     "file-loader": "^1.1.11",
     "mocha": "^5.2.0",
