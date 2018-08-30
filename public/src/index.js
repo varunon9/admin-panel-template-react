@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import AppReducer from './reducers/AppReducer';
-import AppRoutes from './components/AppRoutes';
+import AppRoutes from './containers/AppRoutes';
 
 const store = createStore(AppReducer, applyMiddleware(thunk));
 const app = document.getElementById('app');

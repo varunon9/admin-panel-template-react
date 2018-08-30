@@ -12,6 +12,11 @@
   "parserOptions": {
     "ecmaVersion": 9
   },
+  "settings": {
+    "react": {
+      "version": "16.4.2"
+    }
+  },
   "globals": {
     "describe": true,
     "it": true,
@@ -20,7 +25,10 @@
   "rules": {
     "indent": [
       "error",
-      2
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
     "linebreak-style": [
       "error",
