@@ -1,0 +1,22 @@
+$primary-color: #4057bb;
+
+#menu {
+  padding: 0.5em;
+  margin-top: unset;
+}
+
+#agencyOfficeBanner {
+  .ui.header {
+    color: $primary-color;
+  }
+
+  .ui.list {
+    .item {
+      margin-top: 10px;
+
+      .description {
+        margin-top: 10px;
+      }
+    }
+  }
+}

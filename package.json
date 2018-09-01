@@ -7,7 +7,8 @@
     "start": "export NODE_ENV=production && pm2 start ./bin/www",
     "test": "eslint . && mocha test/**/**/*.js --exit",
     "build": "webpack --watch",
-    "build-dev": "export NODE_ENV=development && webpack --watch"
+    "build-dev": "export NODE_ENV=development && webpack --watch",
+    "build-sass": "gulp sass:watch"
   },
   "keywords": [
     "admin-panel-template",
@@ -47,6 +48,8 @@
     "eslint-loader": "^2.1.0",
     "eslint-plugin-react": "^7.11.1",
     "expect.js": "^0.3.1",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.1",
     "mocha": "^5.2.0",
     "supertest": "^3.1.0",
     "webpack": "^4.17.1",
