@@ -34,6 +34,7 @@
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "s": "^0.1.1",
+    "semantic-ui-react": "^0.82.3",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
@@ -46,10 +47,8 @@
     "eslint-loader": "^2.1.0",
     "eslint-plugin-react": "^7.11.1",
     "expect.js": "^0.3.1",
-    "file-loader": "^1.1.11",
     "mocha": "^5.2.0",
     "supertest": "^3.1.0",
-    "url-loader": "^0.6.2",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0"
   },

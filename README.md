@@ -2,7 +2,7 @@
 
 Admin Dashboard developed in react.js and node.js.
 
-#### Main Technologies-
+#### Main Technologies Used-
 
 1. React with redux
 2. Node.js
@@ -11,6 +11,7 @@ Admin Dashboard developed in react.js and node.js.
 5. JsonWebToken
 6. Express
 7. GraphQl
+8. Semantic UI React
 
 #### How to setup project
 

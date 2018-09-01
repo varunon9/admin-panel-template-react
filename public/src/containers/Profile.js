@@ -9,7 +9,11 @@ class Profile extends React.Component {
   }
 
   render() {
-    return <p>Profile</p>;
+    return (
+      <div id="menuLogo">
+        <img src="static/images/logo.png" />
+      </div>
+    );
   }
 }
 

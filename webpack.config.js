@@ -27,15 +27,6 @@ module.exports = {
         query: {presets : ['@babel/react', '@babel/preset-env']}
       },
       {
-        test : /\.s?css$/,
-        loader: 'style-loader!css-loader!sass-loader',
-        include: S_PATH
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg|gif|jpg)$/,
-        loader: 'url-loader?limit=100000'
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['eslint-loader'],
