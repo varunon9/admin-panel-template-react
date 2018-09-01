@@ -9,7 +9,8 @@ const logger = require('../modules/logger');
 const { getToken } = require('./utility');
 const userController = require('../controllers/user');
 
-router.get('/', (req, res ) => {
+// Single Page app, all routes will be handled by react Router
+router.get('/*', (req, res ) => {
   res.render('index');
 });
 

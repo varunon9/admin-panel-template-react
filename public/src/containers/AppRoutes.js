@@ -1,12 +1,13 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import Dashboard from './Dashboard';
+import Layout from './Layout';
 import Login from './Login';
 import Signup from './Signup';
+import NoMatch from '../components/NoMatch';
 
 class AppRoutes extends React.Component {
 
@@ -22,20 +23,21 @@ class AppRoutes extends React.Component {
     return false;
   }
 
-  authenticateAndRender() {
-    if (this.isAuthenticated) {
-      return <Dashboard />;
-    } else {
-      return <Redirect to="/login" />;
-    }
-  }
-
   render() {
     return (
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route path="/" render={this.authenticateAndRender} />
+        <Route 
+          path="/" 
+          render={
+            (props) => (
+              this.isAuthenticated() 
+                ? <Layout {...props} /> : <Redirect to="/login" />
+            )
+          } 
+        />
+        <Route component={NoMatch} />
       </Switch>
     );
   }
@@ -51,4 +53,4 @@ const mapStateToProps = (state) => ({
   authToken: state.auth.authToken
 });
 
-export default connect(mapStateToProps)(AppRoutes);
+export default withRouter(connect(mapStateToProps)(AppRoutes));
