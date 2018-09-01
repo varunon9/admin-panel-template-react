@@ -25,3 +25,8 @@ Admin Dashboard developed in react.js and node.js.
 8. start the project from project root directory `node bin/www` or `nodemon`
 9. Visit localhost:4000 in browser
 10. Use `npm run build-sass`  to transpile sass/scss files to css.
+
+### Screenshots
+|  |  |
+| --- | --- |
+|![Login](./screenshots/login.png) | ![Signup](./screenshots/signup.png)|
