@@ -1,6 +1,7 @@
+import React from 'react';
 import axios from 'axios';
 
-import { TOAST_TYPE } from '../constants';
+import { TOAST_TYPES } from '../constants';
 import { SHOW_MESSAGE } from '../actions/ActionTypes';
 
 export const makeHttpRequest = async (config, dispatch) => {
@@ -15,12 +16,32 @@ export const makeHttpRequest = async (config, dispatch) => {
     if (!message) {
       message = error.message;
     }
-    dispatch({
-      type: SHOW_MESSAGE,
-      payload: {
-        type: TOAST_TYPE.ERROR,
-        message
-      }
-    });
+
+    const payload = {
+      type: TOAST_TYPES.ERROR,
+      messageArray: [message]
+    };
+    showToastMessage(payload, dispatch);
   }
+};
+
+export const showToastMessage = (payload, dispatch) => {
+  payload.messageElement = (
+    <div>
+      {
+        payload.messageArray.map((message, index) => {
+          return (
+            <p key={index}>
+              {message}
+            </p>
+          );
+        })
+      }
+    </div>
+  );
+  
+  dispatch({
+    type: SHOW_MESSAGE,
+    payload
+  });
 };

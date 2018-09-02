@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 
 import AgencyOfficeBanner from '../components/AgencyOfficeBanner';
 import ForgotPasswordModal from './ForgotPasswordModal';
-import { showToastMessage, login } from '../actions/AuthAction';
+import { login } from '../actions/AuthAction';
 
 class Login extends React.Component {
   constructor(props) {
@@ -189,21 +189,14 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (/*state*/) => ({
-});
-
 const mapDispatchToProps = (dispatch) => ({
-  showToast: (payload) => {
-    dispatch(showToastMessage(payload));
-  },
   login: (params) => {
     dispatch(login(params));
   }
 });
 
 Login.propTypes = {
-  showToast: PropTypes.func,
   login: PropTypes.func
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

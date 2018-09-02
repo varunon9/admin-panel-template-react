@@ -28,8 +28,26 @@ class AppRoutes extends React.Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
+          <Route 
+            exact 
+            path="/login"
+            render={
+              () => (
+                this.isAuthenticated() 
+                  ? <Redirect to="/" /> : <Login />
+              )
+            }
+          />
+          <Route 
+            exact 
+            path="/signup"
+            render={
+              () => (
+                this.isAuthenticated() 
+                  ? <Redirect to="/" /> : <Signup />
+              )
+            }
+          />
           <Route 
             path="/" 
             render={

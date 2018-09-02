@@ -1,3 +1,3 @@
 export const SHOW_MESSAGE = 'SHOW_MESSAGE';
-export const LOGIN = 'LOGIN';
-export const SIGNUP = 'SIGNUP';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';

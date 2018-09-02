@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:4000';
 
-export const TOAST_TYPE = {
+export const TOAST_TYPES = {
   ERROR: 'error',
   WARN: 'warn',
   SUCCESS: 'success',

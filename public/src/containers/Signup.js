@@ -11,8 +11,11 @@ import {
   Input,
   Icon
 } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import AgencyOfficeBanner from '../components/AgencyOfficeBanner';
+import { signup } from '../actions/AuthAction';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -58,7 +61,10 @@ class Signup extends React.Component {
   }
 
   onSignupClick() {
-    console.log(this.state);
+    const { firstName, lastName, mobile, email, password } = this.state;
+    this.props.signup({
+      firstName, lastName, mobile, email, password
+    });
   }
 
   render() {
@@ -194,4 +200,14 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => ({
+  signup: (params) => {
+    dispatch(signup(params));
+  }
+});
+
+Signup.propTypes = {
+  signup: PropTypes.func
+};
+
+export default connect(null, mapDispatchToProps)(Signup);
