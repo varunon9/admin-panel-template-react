@@ -11,9 +11,12 @@ import {
   Input,
   Icon
 } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import AgencyOfficeBanner from '../components/AgencyOfficeBanner';
 import ForgotPasswordModal from './ForgotPasswordModal';
+import { showToastMessage } from '../actions/AuthAction';
 
 class Login extends React.Component {
   constructor(props) {
@@ -45,6 +48,10 @@ class Login extends React.Component {
 
   onLoginClick() {
     console.log(this.state);
+    this.props.showToast({
+      type: 'warn',
+      message: 'Test'
+    });
   }
 
   onForgotPasswordClick() {
@@ -182,4 +189,17 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (/*state*/) => ({
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  showToast: (payload) => {
+    dispatch(showToastMessage(payload));
+  }
+});
+
+Login.propTypes = {
+  showToast: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

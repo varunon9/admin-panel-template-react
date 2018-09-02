@@ -3,6 +3,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { ToastContainer } from 'react-toastify';
 
 import Layout from './Layout';
 import Login from './Login';
@@ -25,20 +26,23 @@ class AppRoutes extends React.Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        <Route 
-          path="/" 
-          render={
-            (props) => (
-              this.isAuthenticated() 
-                ? <Layout {...props} /> : <Redirect to="/login" />
-            )
-          } 
-        />
-        <Route component={NoMatch} />
-      </Switch>
+      <div>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route 
+            path="/" 
+            render={
+              (props) => (
+                this.isAuthenticated() 
+                  ? <Layout {...props} /> : <Redirect to="/login" />
+              )
+            } 
+          />
+          <Route component={NoMatch} />
+        </Switch>
+        <ToastContainer />
+      </div>
     );
   }
 }
