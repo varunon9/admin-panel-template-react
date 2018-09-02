@@ -14,34 +14,6 @@ router.get('/*', (req, res ) => {
   res.render('index');
 });
 
-const requiredGoogleSigninParams = 
-    requireParameters(['idToken']);
-router.post('/google-token-signin', requiredGoogleSigninParams, (req, res) => {
-  const params = req.body;
-  userController.loginUsingGoogle(params)
-    .then(([user, responseCode]) => { 
-      res.status(responseCode);
-      const token = getToken(user);
-      const successObject = {
-        success: true,
-        result: user
-      };
-      successObject[config.tokenName] = token;
-      successObject.expiresIn = config.tokenMaxAge;
-      res.json(successObject);
-    }).catch(([err, responseCode]) => {
-      res.status(responseCode);
-      if (typeof(err) !== 'string') {
-        logger.error('routes /users/google-token-signin', err);
-        err = 'Server side error';
-      }
-      res.json({
-        success: false,
-        message: err
-      });
-    });
-});
-
 router.post('/login', requireParameters(['email', 'password']), (req, res) => {
   const params = req.body;
   userController.login(params)
@@ -58,7 +30,7 @@ router.post('/login', requireParameters(['email', 'password']), (req, res) => {
     }).catch(([err, responseCode]) => {
       res.status(responseCode);
       if (typeof(err) !== 'string') {
-        logger.error('routes /users/login', err);
+        logger.error('routes /login', err);
         err = 'Server side error';
       }
       res.json({
@@ -70,7 +42,7 @@ router.post('/login', requireParameters(['email', 'password']), (req, res) => {
 
 
 const requiredSignupParams = requireParameters([
-  'firstName', 'email', 'password'
+  'firstName', 'lastName', 'mobile', 'email', 'password'
 ]);
 router.post('/signup', requiredSignupParams, (req, res) => {
   const params = req.body;
@@ -88,7 +60,7 @@ router.post('/signup', requiredSignupParams, (req, res) => {
     }).catch(([err, responseCode]) => {
       res.status(responseCode);
       if (typeof(err) !== 'string') {
-        logger.error('routes /users/signup', err);
+        logger.error('routes /signup', err);
         err = 'Server side error';
       }
       res.json({

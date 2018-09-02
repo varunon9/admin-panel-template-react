@@ -11,7 +11,7 @@ const S_PATH = __dirname + '/public/src';
 module.exports = {
   mode: mode,
   devtool: (mode === 'development') ? 'inline-source-map' : false,
-  entry : S_PATH,
+  entry : ['regenerator-runtime/runtime', S_PATH],
   output: {
     path : __dirname + '/public' + '/static/js',
     filename : 'bundle.js'

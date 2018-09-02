@@ -8,7 +8,6 @@ module.exports = {
     'superSecret': process.env.SECRET_STRING || 'SECRET',
     'tokenMaxAge': 30 * 24 * 60 * 60, // 30 days
     'tokenName': 'authToken',
-    'googleSigninClientId': '',
     'bcryptSaltRounds': 2
   },
   'production': {
@@ -20,7 +19,6 @@ module.exports = {
     'superSecret': process.env.SECRET_STRING || 'SECRET',
     'tokenMaxAge': 30 * 24 * 60 * 60, // 30 days
     'tokenName': 'authToken',
-    'googleSigninClientId': '',
     'bcryptSaltRounds': 2
   }
 };

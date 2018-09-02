@@ -7,14 +7,18 @@ const models = require('../models');
 
 module.exports = {
 
-  createUser: async user => {
-    user.password = 
-        await bcrypt.hash(user.password, config.bcryptSaltRounds);
-    const { dataValues } = await models.user.create(user);
-    return dataValues;
+  createUser: async (user) => {
+    try {
+      user.password = 
+          await bcrypt.hash(user.password, config.bcryptSaltRounds);
+      const { dataValues } = await models.user.create(user);
+      return dataValues;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  updateUser: async params => {
+  updateUser: async (params) => {
     const user = await models.user.findOne({
       where: {
         id: params.id
@@ -25,17 +29,21 @@ module.exports = {
       throw ('No such user Exist');
     }
 
-    // update password
-    if (params.password) {
-      params.password = 
-          await bcrypt.hash(params.password, config.bcryptSaltRounds);
-    }
+    try {
+      // update password
+      if (params.password) {
+        params.password = 
+            await bcrypt.hash(params.password, config.bcryptSaltRounds);
+      }
 
-    const { dataValues } =  await user.updateAttributes(params);
-    return dataValues;
+      const { dataValues } =  await user.updateAttributes(params);
+      return dataValues;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  getUserById: async id => {
+  getUserById: async (id) => {
     const user = await models.user.findOne({
       where: {
         id

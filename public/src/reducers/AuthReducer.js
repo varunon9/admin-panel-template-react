@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-import { SHOW_MESSAGE } from '../actions/AuthAction';
+import { SHOW_MESSAGE } from '../actions/ActionTypes';
 
 const initialState = {
   authToken: '',
