@@ -9,6 +9,7 @@ import Layout from './Layout';
 import Login from './Login';
 import Signup from './Signup';
 import NoMatch from '../components/NoMatch';
+import CustomLoader from '../components/CustomLoader';
 
 class AppRoutes extends React.Component {
 
@@ -27,6 +28,7 @@ class AppRoutes extends React.Component {
   render() {
     return (
       <div>
+        <CustomLoader visible={this.props.isLoading} />
         <Switch>
           <Route 
             exact 
@@ -67,12 +69,14 @@ class AppRoutes extends React.Component {
 
 AppRoutes.propTypes = {
   email: PropTypes.string,
-  authToken: PropTypes.string
+  authToken: PropTypes.string,
+  isLoading: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
   email: state.auth.email,
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  isLoading: state.util.isLoading
 });
 
 export default withRouter(connect(mapStateToProps)(AppRoutes));

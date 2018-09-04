@@ -1,5 +1,20 @@
 $primary-color: #4057bb;
 
+#loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  .ui.segment {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+  }
+}
+
 #menu {
   padding: 0.5em;
   margin-top: unset;
