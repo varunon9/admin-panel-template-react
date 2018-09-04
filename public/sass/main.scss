@@ -35,3 +35,11 @@ $primary-color: #4057bb;
     }
   }
 }
+
+#layoutMenu {
+  .right.menu {
+    .item {
+      color: $primary-color;
+    }
+  }
+}

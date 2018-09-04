@@ -1,5 +1,5 @@
 import { URLS, REQUEST_METHODS, TOAST_TYPES } from '../constants';
-import { LOGIN_SUCCESS, SIGNUP_SUCCESS } from './ActionTypes';
+import { LOGIN_SUCCESS, SIGNUP_SUCCESS, LOGOUT } from './ActionTypes';
 import { makeHttpRequest, showToastMessage } from '../utils';
 
 export const login = (params) => {
@@ -23,6 +23,12 @@ export const login = (params) => {
 
       dispatch(action);
     } 
+  };
+};
+
+export const logout = () => {
+  return {
+    type: LOGOUT
   };
 };
 
