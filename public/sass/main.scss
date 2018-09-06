@@ -18,6 +18,7 @@ $primary-color: #4057bb;
 #menu {
   padding: 0.5em;
   margin-top: unset;
+  border-radius: 0;
 }
 
 #agencyOfficeBanner {
@@ -37,9 +38,50 @@ $primary-color: #4057bb;
 }
 
 #layoutMenu {
+  border-radius: 0;
+  padding: 0.5em;
+
   .right.menu {
     .item {
       color: $primary-color;
+    }
+  }
+}
+
+#layoutContainer {
+  .row {
+    padding: 0;
+
+    .three.wide.column {
+      background: linear-gradient(to right, #2a3058 0, #0b1ea2 100%);
+      color: white;
+      padding-right: 0;
+    }
+  }
+}
+
+#layoutSidebar {
+  border-radius: 0;
+  background: transparent;
+  font-size: 1.2rem;
+
+  .sixteen.wide.column {
+    margin: 4px;
+
+    a {
+      color: white;
+      font-weight: bold;
+      opacity: .8;
+    }
+
+    a.active {
+      opacity: 1;
+    }
+  }
+
+  .sixteen.wide.column:hover {
+    a {
+      opacity: 1;
     }
   }
 }

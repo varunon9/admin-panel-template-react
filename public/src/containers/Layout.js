@@ -1,8 +1,14 @@
 import React from 'react';
-import { Switch, Route, withRouter, Link } from 'react-router-dom';
+import { 
+  Switch, 
+  Route, 
+  withRouter, 
+  Link, 
+  NavLink 
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Menu, Dropdown, Icon } from 'semantic-ui-react';
+import { Menu, Dropdown, Icon, Grid, Segment } from 'semantic-ui-react';
 
 import { logout } from '../actions/AuthAction';
 import Dashboard from './Dashboard';
@@ -71,10 +77,40 @@ class Layout extends React.Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Switch>
-          <Route exact path={`${this.props.match.url}`} component={Dashboard} />
-          <Route path={`${this.props.match.url}profile`} component={Profile} />
-        </Switch>
+        <Grid id="layoutContainer">
+          <Grid.Row>
+            <Grid.Column width={3}>
+              <Segment id="layoutSidebar">
+                <Grid>
+                  <Grid.Column width={16}>
+                    <Icon name="grid layout" />
+                    &nbsp;&nbsp;
+                    <NavLink exact to="/" activeClassName="active">
+                      Dashboard
+                    </NavLink>
+                  </Grid.Column>
+                  <Grid.Column width={16}>
+                    <Icon name="grid layout" />
+                    &nbsp;&nbsp;
+                    <NavLink to="/profile" activeClassName="active">
+                      Profile
+                    </NavLink>
+                  </Grid.Column>
+                </Grid>
+              </Segment>
+            </Grid.Column>
+            <Grid.Column width={13}>
+              <Switch>
+                <Route exact 
+                  path={`${this.props.match.url}`} component={Dashboard} 
+                />
+                <Route 
+                  path={`${this.props.match.url}profile`} component={Profile} 
+                />
+              </Switch>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
