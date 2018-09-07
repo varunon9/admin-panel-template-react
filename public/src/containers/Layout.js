@@ -13,6 +13,7 @@ import { Menu, Dropdown, Icon, Grid, Segment } from 'semantic-ui-react';
 import { logout } from '../actions/AuthAction';
 import Dashboard from './Dashboard';
 import Profile from './Profile';
+import NoMatch from '../components/NoMatch';
 
 class Layout extends React.Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class Layout extends React.Component {
         <Grid id="layoutContainer">
           <Grid.Row>
             <Grid.Column width={3}>
-              <Segment id="layoutSidebar">
+              <Segment basic id="layoutSidebar">
                 <Grid>
                   <Grid.Column width={16}>
                     <Icon name="grid layout" />
@@ -90,24 +91,48 @@ class Layout extends React.Component {
                     </NavLink>
                   </Grid.Column>
                   <Grid.Column width={16}>
-                    <Icon name="grid layout" />
+                    <Icon name="user" />
                     &nbsp;&nbsp;
                     <NavLink to="/profile" activeClassName="active">
                       Profile
+                    </NavLink>
+                  </Grid.Column>
+                  <Grid.Column width={16}>
+                    <Icon name="group" />
+                    &nbsp;&nbsp;
+                    <NavLink to="/team" activeClassName="active">
+                      My Team
+                    </NavLink>
+                  </Grid.Column>
+                  <Grid.Column width={16}>
+                    <Icon name="clipboard list" />
+                    &nbsp;&nbsp;
+                    <NavLink to="/leads" activeClassName="active">
+                      Leads
+                    </NavLink>
+                  </Grid.Column>
+                  <Grid.Column width={16}>
+                    <Icon name="settings" />
+                    &nbsp;&nbsp;
+                    <NavLink to="/settings" activeClassName="active">
+                      Settings
                     </NavLink>
                   </Grid.Column>
                 </Grid>
               </Segment>
             </Grid.Column>
             <Grid.Column width={13}>
-              <Switch>
-                <Route exact 
-                  path={`${this.props.match.url}`} component={Dashboard} 
-                />
-                <Route 
-                  path={`${this.props.match.url}profile`} component={Profile} 
-                />
-              </Switch>
+              <Segment padded id="layoutContent">
+                <Switch>
+                  <Route exact 
+                    path={`${this.props.match.url}`} component={Dashboard} 
+                  />
+                  <Route 
+                    path={`${this.props.match.url}profile`} component={Profile} 
+                  />
+                  <Route component={NoMatch} />
+                </Switch>
+              </Segment>
             </Grid.Column>
           </Grid.Row>
         </Grid>

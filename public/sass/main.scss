@@ -1,5 +1,9 @@
 $primary-color: #4057bb;
 
+.top-margin {
+  margin: 1rem 0 0 0 !important;
+}
+
 #loader {
   position: fixed;
   height: 100%;
@@ -51,11 +55,16 @@ $primary-color: #4057bb;
 #layoutContainer {
   .row {
     padding: 0;
+    height: 91vh;
 
     .three.wide.column {
       background: linear-gradient(to right, #2a3058 0, #0b1ea2 100%);
       color: white;
       padding-right: 0;
+    }
+
+    .thirteen.wide.column {
+      padding-left: 0;
     }
   }
 }
@@ -84,4 +93,10 @@ $primary-color: #4057bb;
       opacity: 1;
     }
   }
+}
+
+#layoutContent {
+  border-radius: 0;
+  height: 100%;
+  overflow-y: scroll;
 }

@@ -5,8 +5,8 @@ import {
 } from '../actions/ActionTypes';
 
 const initialState = {
-  authToken: 'a',
-  email: 'a',
+  authToken: '',
+  email: '',
   profile: {}
 };
 

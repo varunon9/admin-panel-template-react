@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import Layout from './Layout';
 import Login from './Login';
 import Signup from './Signup';
-import NoMatch from '../components/NoMatch';
 import CustomLoader from '../components/CustomLoader';
 
 class AppRoutes extends React.Component {
@@ -59,7 +58,6 @@ class AppRoutes extends React.Component {
               )
             } 
           />
-          <Route component={NoMatch} />
         </Switch>
         <ToastContainer />
       </div>
