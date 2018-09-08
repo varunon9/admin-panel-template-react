@@ -2,7 +2,16 @@
 
 Admin Dashboard developed in react.js and node.js.
 
-#### Main Technologies Used-
+#### Functionalities-
+
+1. Login
+2. Signup
+3. Authentication using jsonWebToken
+4. Update Profile after login
+5. Routing
+6. Toast Notification
+
+#### Main Technologies/Libraries Used-
 
 1. React with redux
 2. Node.js
@@ -10,8 +19,8 @@ Admin Dashboard developed in react.js and node.js.
 4. Sequelize
 5. JsonWebToken
 6. Express
-7. GraphQl
-8. Semantic UI React
+7. Semantic UI React
+8. React Toastify
 
 #### How to setup project
 
@@ -30,3 +39,4 @@ Admin Dashboard developed in react.js and node.js.
 |  |  |
 | --- | --- |
 |![Login](./screenshots/login.png) | ![Signup](./screenshots/signup.png)|
+|![Dashboard](./screenshots/dashboard.png) | ![Profile](./screenshots/profile.png)|
