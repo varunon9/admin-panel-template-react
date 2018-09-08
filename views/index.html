@@ -16,9 +16,27 @@
         padding: 0;
         overflow: hidden;
       }
+
+      #oneTimeLoader {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background: url(static/images/loading.gif) center no-repeat #fff;
+      }
     </style>
+    <script>
+      // hiding the oneTimeLoader
+      function hideOneTimeLoader() {
+        document.getElementById('oneTimeLoader').style.cssText = 
+            'display:none;';
+      }
+    </script>
   </head>
-  <body>
+  <body onload="hideOneTimeLoader();">
+    <div id="oneTimeLoader"></div>
     <div id="app"></div>
     <link rel="stylesheet" href="static/css/main.css" />
     <link rel="stylesheet" href="static/css/react-toastify.min.css" />
