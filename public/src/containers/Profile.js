@@ -4,14 +4,15 @@ import { withRouter } from 'react-router-dom';
 import PropType from 'prop-types';
 import autoBind from 'react-autobind';
 import {
-  Grid, 
-  //Segment,
+  Grid,
   Button,
   Form,
   Header,
   Input,
   Icon
 } from 'semantic-ui-react';
+
+import { updateProfile } from '../actions/AuthAction';
 
 class Profile extends React.Component {
 
@@ -56,7 +57,7 @@ class Profile extends React.Component {
   }
 
   onProfileUpdateClick() {
-    console.log(this.state);
+    this.props.updateProfile(this.state.profile);
   }
 
   render() {
@@ -186,11 +187,20 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-  profile: PropType.object
+  profile: PropType.object,
+  updateProfile: PropType.func
 };
 
 const mapStateToProps = (state) => ({
   profile: state.auth.profile
 });
 
-export default withRouter(connect(mapStateToProps)(Profile));
+const mapDispatchToProps = (dispatch) => ({
+  updateProfile: (profile) => {
+    dispatch(updateProfile(profile));
+  }
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Profile)
+);

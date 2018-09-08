@@ -19,10 +19,17 @@ module.exports = {
   },
 
   updateUser: async (params) => {
+    let where = {};
+    if (params.id) {
+      where.id = params.id;
+    } else if (params.email) {
+      where.email = params.email;
+    } else if (params.mobile) {
+      where.mobile = params.mobile;
+    }
+
     const user = await models.user.findOne({
-      where: {
-        id: params.id
-      }
+      where
     });
 
     if (!user) {
@@ -41,15 +48,5 @@ module.exports = {
     } catch (error) {
       throw error;
     }
-  },
-
-  getUserById: async (id) => {
-    const user = await models.user.findOne({
-      where: {
-        id
-      }
-    });
-
-    return user ? user.dataValues : null;
   }
 };

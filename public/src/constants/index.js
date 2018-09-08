@@ -9,7 +9,8 @@ export const TOAST_TYPES = {
 
 export const URLS = {
   LOGIN: BASE_URL + '/login',
-  SIGNUP: BASE_URL + '/signup'
+  SIGNUP: BASE_URL + '/signup',
+  PROFILE: BASE_URL + '/auth/profile'
 };
 
 export const REQUEST_METHODS = {
@@ -17,3 +18,5 @@ export const REQUEST_METHODS = {
   POST: 'post',
   PUT: 'put'
 };
+
+export const AUTH_TOKEN = 'authToken';

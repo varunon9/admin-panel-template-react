@@ -3,8 +3,8 @@ const router = express.Router();
 
 const { verifyToken } = require('../../middlewares');
 
-const userRoutes = require('./user');
+const profileRoutes = require('./profile');
 
-router.use('/auth', verifyToken, userRoutes);
+router.use('/auth', verifyToken, profileRoutes);
 
 module.exports = router;

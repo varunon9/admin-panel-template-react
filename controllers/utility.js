@@ -1,5 +1,9 @@
 module.exports = {
   
+  isAdmin: (/*decoded*/) => {
+    return false;
+  },
+
   swapValues: (arr) => {
     let temp = arr[0];
     arr[0] = arr[1];

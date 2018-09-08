@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const logger = require('../../modules/logger');
-const { verifyToken } = require('../../middlewares');
 const userController = require('../../controllers/user');
 
-router.get('/:id', (req, res) => {
-  userController.getUserById(req.params.id)
+router.get('/profile', (req, res) => {
+  const params = req.body;
+  params.decoded = req.decoded;
+
+  userController.getUser(params)
     .then(([user, responseCode]) => { 
       res.status(responseCode)
         .json({
@@ -27,13 +29,9 @@ router.get('/:id', (req, res) => {
 });
 
 // Update user profile
-router.put('/:id', verifyToken, (req, res) => {
-  const params = {
-    ...req.body,
-    id: parseInt(req.params.id),
-    decodedId: req.decoded.id,
-    email: req.decoded.email
-  };
+router.put('/profile', (req, res) => {
+  const params = req.body;
+  params.decoded = req.decoded;
 
   userController.updateUser(params)
     .then(([user, responseCode]) => { 

@@ -1,6 +1,7 @@
 import {  
   SIGNUP_SUCCESS,
   LOGIN_SUCCESS,
+  UPDATE_PROFILE,
   LOGOUT
 } from '../actions/ActionTypes';
 
@@ -17,6 +18,10 @@ const AuthReducer = (state = initialState, action) => {
     }
 
     case LOGIN_SUCCESS: {
+      return { ...state, ...action.payload };
+    }
+
+    case UPDATE_PROFILE: {
       return { ...state, ...action.payload };
     }
 
